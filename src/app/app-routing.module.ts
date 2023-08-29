@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'fff/documentos',
+    path: 'vista/documentos',
     loadChildren: () => import('./documentos/documentos.module').then( m => m.DocumentosModule)
   },
   
