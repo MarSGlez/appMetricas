@@ -25,6 +25,8 @@
     "useDefineForClassFields": false,
     "noImplicitAny": false,
     "strictPropertyInitialization": false,
+    "typeRoots": ["node_modules/@types", "src/typings"],
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
