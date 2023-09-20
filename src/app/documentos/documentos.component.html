@@ -21,7 +21,17 @@
 
   <input type="file" (change)="onFileSelected($event)" accept=".txt">
   <div *ngIf="fileContent">
-    <h2>Contenido del archivo:</h2>
-    <pre>{{ fileContent }}</pre>
+    <h2>M e t r i c a s:</h2>
+    <!--<pre>{{ fileContent }}</pre>-->
+    <pre>1. Longitud Halstead o Densidad del Codigo: {{ H }}</pre>
+    <pre>2. Largo del programa {{ N }}</pre>
+    <pre>3. Tamaño del Vocabulario del programa: {{ n }}</pre>
+    <pre>4. Volumen del programa: {{ V }}</pre>
+    <pre>5. Nivel de Dificultad: {{ D }}</pre>
+    <pre>6. Nivel de Programa: {{ L }}</pre>
+    <pre>7. Esfuerzo de Implementacion:{{ E }}</pre>
+    <pre>8. Tiempo de Entendimiento: {{ T }}</pre>
+    <pre>9. Total Líneas de Codigo: {{ LoC }}</pre>
+    <pre>10. Total Líneas de Codigo Comentadas: {{ CLoC }}</pre>
   </div>
 </ion-content>

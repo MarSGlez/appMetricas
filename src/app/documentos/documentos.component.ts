@@ -95,6 +95,16 @@ export class DocumentosComponent  implements OnInit {
   
   selectedFile: File | null = null;
   fileContent: string | null = null;
+
+  H: number | null = null;
+  N: number | null = null;
+  n: number | null = null;
+  V: number | null = null;
+  D: number | null = null;
+  L: number | null = null;
+  E: number | null = null;
+  T: number | null = null;
+
  
   constructor(
     public popoverController: PopoverController,
@@ -166,24 +176,24 @@ export class DocumentosComponent  implements OnInit {
             });
           }
         });   
-        const H: number = this.n1 * math.log(this.n1, 2) + this.n2 * math.log(this.n2, 2);
-        const N: number = this.N1 + this.N2;
-        const n: number = this.n1 + this.n2;
-        const V: number = N * math.log(n, 2);
-        const D: number = (this.n1 / 2) * (this.N2 / this.n2);
-        const L: number = 1 / D;
-        const E: number = V * D;
-        const T: number = E / 18;
+        this.H = this.n1 * math.log(this.n1, 2) + this.n2 * math.log(this.n2, 2);
+        this.N = this.N1 + this.N2;
+        this.n = this.n1 + this.n2;
+        this.V = this.N * math.log(this.n, 2);
+        this.D = (this.n1 / 2) * (this.N2 / this.n2);
+        this.L = 1 / this.D;
+        this.E = this.V * this.D;
+        this.T = this.E / 18;
   
         console.log('M e t r i c a s');
-        console.log(`1. Longitud Halstead o Densidad del Codigo: ${H}`);
-        console.log(`2. Largo del programa: ${N}`);
-        console.log(`3. Tamaño del Vocabulario del programa: ${n}`);
-        console.log(`4. Volumen del programa: ${V}`);
-        console.log(`5. Nivel de Dificultad: ${D}`);
-        console.log(`6. Nivel de Programa: ${L}`);
-        console.log(`7. Esfuerzo de Implementacion: ${E}`);
-        console.log(`8. Tiempo de Entendimiento: ${T}`);
+        console.log(`1. Longitud Halstead o Densidad del Codigo: ${this.H}`);
+        console.log(`2. Largo del programa: ${this.N}`);
+        console.log(`3. Tamaño del Vocabulario del programa: ${this.n}`);
+        console.log(`4. Volumen del programa: ${this.V}`);
+        console.log(`5. Nivel de Dificultad: ${this.D}`);
+        console.log(`6. Nivel de Programa: ${this.L}`);
+        console.log(`7. Esfuerzo de Implementacion: ${this.E}`);
+        console.log(`8. Tiempo de Entendimiento: ${this.T}`);
         console.log(`9. Total Líneas de Codigo: ${this.LoC}`);
         console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);
 
