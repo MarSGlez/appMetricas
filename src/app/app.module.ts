@@ -28,7 +28,8 @@ import { getFirestore } from 'firebase/firestore';
      AuthModule,
      FirestoreModule,
      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-     provideFirestore(() => getFirestore())
+     provideFirestore(() => getFirestore()),
+     IonicModule.forRoot({})
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

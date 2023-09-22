@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: MetricasComponent
+  },
+  {
+    path: 'details/:programaId',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailModule)
   }
 ];
 
