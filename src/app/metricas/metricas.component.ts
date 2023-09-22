@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-metricas',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MetricasComponent  implements OnInit {
 
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
+
+ 
 
 }
