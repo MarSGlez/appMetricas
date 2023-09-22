@@ -17,6 +17,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { File } from '@ionic-native/file/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +33,11 @@ import { getFirestore } from 'firebase/firestore';
      provideFirestore(() => getFirestore()),
      IonicModule.forRoot({})
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    File,
+    FilePath,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
