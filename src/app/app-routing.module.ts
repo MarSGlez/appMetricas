@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'folder/inicio',
     pathMatch: 'full'
   },
   {
@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'vista/documentos',
     loadChildren: () => import('./documentos/documentos.module').then( m => m.DocumentosModule)
+  },
+  {
+    path: 'vista/metricas',
+    loadChildren: () => import('./metricas/metricas.module').then( m => m.MetricasModule)
   },
   
 ];
