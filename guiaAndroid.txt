@@ -4,3 +4,6 @@ Pasos para correr android
 *correr comando npx cap add android
 *comando adb devices para checar dispositivos conectados
 *correr ionic capacitor run android -l --external y seleccionar dispositivo 
+
+o abrir android para generar el apk
+*npx cap open android
