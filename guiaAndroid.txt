@@ -1,5 +1,6 @@
 Pasos para correr android
 *Borrar carpeta android del proyecto
+*ionic build carga de nuevo todo el proyecto
 *correr comando npx cap add android
 *comando adb devices para checar dispositivos conectados
 *correr ionic capacitor run android -l --external y seleccionar dispositivo 
