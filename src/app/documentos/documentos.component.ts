@@ -108,7 +108,7 @@ export class DocumentosComponent  implements OnInit {
  
   constructor(
     public popoverController: PopoverController,
-    private db: DatabaseService,
+    private db: DatabaseService
   ) {
     //this.calculateMetrics();
    }
