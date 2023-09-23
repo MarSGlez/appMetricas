@@ -185,7 +185,7 @@ export class DocumentosComponent  implements OnInit {
         this.E = this.V * this.D;
         this.T = this.E / 18;
   
-        console.log('M e t r i c a s');
+        /*console.log('M e t r i c a s');
         console.log(`1. Longitud Halstead o Densidad del Codigo: ${this.H}`);
         console.log(`2. Largo del programa: ${this.N}`);
         console.log(`3. Tamaño del Vocabulario del programa: ${this.n}`);
@@ -195,7 +195,7 @@ export class DocumentosComponent  implements OnInit {
         console.log(`7. Esfuerzo de Implementacion: ${this.E}`);
         console.log(`8. Tiempo de Entendimiento: ${this.T}`);
         console.log(`9. Total Líneas de Codigo: ${this.LoC}`);
-        console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);
+        console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);*/
 
 
 
