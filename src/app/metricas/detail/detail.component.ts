@@ -13,6 +13,7 @@ import * as math from 'mathjs';
 export class DetailComponent  implements OnInit {
   destinatario: string | null;
   ruta: string | null;
+  programa: string | null;
 
   delimiters: string[] = ['(', ')', '[', ']', '{', '}', ',', '.', ';', '@', "'", "'"];
   operators: Record<string, number> = {
@@ -123,7 +124,8 @@ export class DetailComponent  implements OnInit {
 
       // Dividir el contenido del archivo en líneas
       const lines: string[] = fileContents.split('\n');
-
+      this.programa = fileContents;
+      
       lines.forEach((line) => {
         line = line.trim();
 
@@ -164,29 +166,30 @@ export class DetailComponent  implements OnInit {
         }
       });   
       this.H = this.n1 * math.log(this.n1, 2) + this.n2 * math.log(this.n2, 2);
-        this.N = this.N1 + this.N2;
-        this.n = this.n1 + this.n2;
-        this.V = this.N * math.log(this.n, 2);
-        this.D = (this.n1 / 2) * (this.N2 / this.n2);
-        this.L = 1 / this.D;
-        this.E = this.V * this.D;
-        this.T = this.E / 18;
-  
-        console.log('M e t r i c a s');
-        console.log(`1. Longitud Halstead o Densidad del Codigo: ${this.H}`);
-        console.log(`2. Largo del programa: ${this.N}`);
-        console.log(`3. Tamaño del Vocabulario del programa: ${this.n}`);
-        console.log(`4. Volumen del programa: ${this.V}`);
-        console.log(`5. Nivel de Dificultad: ${this.D}`);
-        console.log(`6. Nivel de Programa: ${this.L}`);
-        console.log(`7. Esfuerzo de Implementacion: ${this.E}`);
-        console.log(`8. Tiempo de Entendimiento: ${this.T}`);
-        console.log(`9. Total Líneas de Codigo: ${this.LoC}`);
-        console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);
+      this.N = this.N1 + this.N2;
+      this.n = this.n1 + this.n2;
+      this.V = this.N * math.log(this.n, 2);
+      this.D = (this.n1 / 2) * (this.N2 / this.n2);
+      this.L = 1 / this.D;
+      this.E = this.V * this.D;
+      this.T = this.E / 18;
 
+      /*console.log('M e t r i c a s');
+      console.log(`1. Longitud Halstead o Densidad del Codigo: ${this.H}`);
+      console.log(`2. Largo del programa: ${this.N}`);
+      console.log(`3. Tamaño del Vocabulario del programa: ${this.n}`);
+      console.log(`4. Volumen del programa: ${this.V}`);
+      console.log(`5. Nivel de Dificultad: ${this.D}`);
+      console.log(`6. Nivel de Programa: ${this.L}`);
+      console.log(`7. Esfuerzo de Implementacion: ${this.E}`);
+      console.log(`8. Tiempo de Entendimiento: ${this.T}`);
+      console.log(`9. Total Líneas de Codigo: ${this.LoC}`);
+      console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);*/
+  
 
     } catch (error) {
       console.error('Error al leer el archivo:', error);
+
     }
   }
   
