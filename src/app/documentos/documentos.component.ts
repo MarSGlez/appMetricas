@@ -4,6 +4,7 @@ import { PopoverController } from '@ionic/angular';
 import { ref, uploadBytesResumable, getDownloadURL  } from '@angular/fire/storage';
 import { Storage } from '@angular/fire/storage';
 import * as math from 'mathjs';
+import { Metricas } from 'src/app/interface/metricas';
 //import * as fs from "fs";
 
 
@@ -16,7 +17,8 @@ import * as math from 'mathjs';
 })
 export class DocumentosComponent  implements OnInit {
 	private storage: Storage = inject(Storage);
- 
+  metricas: Metricas[] = [];
+
   delimiters: string[] = ['(', ')', '[', ']', '{', '}', ',', '.', ';', '@', "'", "'"];
   operators: Record<string, number> = {
     '=': 0,
@@ -189,21 +191,6 @@ export class DocumentosComponent  implements OnInit {
         this.L = 1 / this.D;
         this.E = this.V * this.D;
         this.T = this.E / 18;
-  
-        /*console.log('M e t r i c a s');
-        console.log(`1. Longitud Halstead o Densidad del Codigo: ${this.H}`);
-        console.log(`2. Largo del programa: ${this.N}`);
-        console.log(`3. Tamaño del Vocabulario del programa: ${this.n}`);
-        console.log(`4. Volumen del programa: ${this.V}`);
-        console.log(`5. Nivel de Dificultad: ${this.D}`);
-        console.log(`6. Nivel de Programa: ${this.L}`);
-        console.log(`7. Esfuerzo de Implementacion: ${this.E}`);
-        console.log(`8. Tiempo de Entendimiento: ${this.T}`);
-        console.log(`9. Total Líneas de Codigo: ${this.LoC}`);
-        console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);*/
-
-
-
 
 
       };
@@ -211,78 +198,6 @@ export class DocumentosComponent  implements OnInit {
     }
   }
   
-  /* 
-  onFileChoose($event): void {
-
-    fs.readFile('Prog301.py', 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      const lines: string[] = data.split('\n');
-      lines.forEach((line) => {
-        line = line.trim();
-
-        if (line.includes("'''")) {
-          this.CLoC++;
-          line = line.replace(line.substring(line.indexOf("'''")), '');
-        }
-
-        if (line.includes('#')) {
-          this.CLoC++;
-          line = line.replace(line.substring(line.indexOf('#')), '');
-        }
-
-        if (line) {
-          this.LoC++;
-          for (const delimiter of this.delimiters) {
-            line = line.replace(delimiter, ' ');
-          }
-
-          const words: string[] = line.split(' ');
-          words.forEach((word) => {
-            if (this.operators[word] !== undefined) {
-              if (this.operators[word] === 0) {
-                this.n1++;
-              }
-              this.operators[word]++;
-              this.N1++;
-            } else {
-              this.N2++;
-              if (this.operands[word] !== undefined) {
-                this.operands[word]++;
-              } else {
-                this.operands[word] = 1;
-                this.n2++;
-              }
-            }
-          });
-        }
-      });
-
-      const H: number = this.n1 * math.log(this.n1, 2) + this.n2 * math.log(this.n2, 2);
-      const N: number = this.N1 + this.N2;
-      const n: number = this.n1 + this.n2;
-      const V: number = N * math.log(n, 2);
-      const D: number = (this.n1 / 2) * (this.N2 / this.n2);
-      const L: number = 1 / D;
-      const E: number = V * D;
-      const T: number = E / 18;
-
-      console.log('M e t r i c a s');
-      console.log(`1. Longitud Halstead o Densidad del Codigo: ${H}`);
-      console.log(`2. Largo del programa: ${N}`);
-      console.log(`3. Tamaño del Vocabulario del programa: ${n}`);
-      console.log(`4. Volumen del programa: ${V}`);
-      console.log(`5. Nivel de Dificultad: ${D}`);
-      console.log(`6. Nivel de Programa: ${L}`);
-      console.log(`7. Esfuerzo de Implementacion: ${E}`);
-      console.log(`8. Tiempo de Entendimiento: ${T}`);
-      console.log(`9. Total Líneas de Codigo: ${this.LoC}`);
-      console.log(`10. Total Líneas de Codigo Comentadas: ${this.CLoC}`);
-    });
-  }*/
 
 
   uploadFile(input: HTMLInputElement) {

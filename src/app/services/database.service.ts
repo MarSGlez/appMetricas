@@ -25,7 +25,12 @@ export class DatabaseService {
     return collectionData(tabla);
   }
 
-  
+  addMetricasListItem( origen : string, destinatario: string, chatItem: any){
+    const tabla = collection(this.firestore, 'metricas');
+    //return this.firestore.collection('chats').doc(origen).collection('chatlist').doc(destinatario).set( chatItem);  
+    
+
+ }
 
   
 
