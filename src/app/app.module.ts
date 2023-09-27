@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AuthModule } from '@angular/fire/auth';
 import { FirestoreModule, provideFirestore} from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from '../environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { provideFirebaseApp } from '@angular/fire/app';
@@ -19,6 +20,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,8 +31,10 @@ import { FilePath } from '@ionic-native/file-path/ngx';
      AngularFireModule.initializeApp(environment.firebaseConfig),
      AuthModule,
      FirestoreModule,
+     AngularFireStorageModule,
      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
      provideFirestore(() => getFirestore()),
+     provideStorage(() => getStorage()),
      IonicModule.forRoot({})
   ],
   providers: [

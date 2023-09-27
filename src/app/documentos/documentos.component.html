@@ -39,4 +39,9 @@
       <pre>{{fileContent}}</pre>
     </div>
   </div>
+
+  <h1>Storage</h1>
+  <label for="fileUpload">Choose a File</label>
+  <input id="fileUpload" type="file" #upload>
+  <button (click)="uploadFile(upload)">Upload</button>
 </ion-content>

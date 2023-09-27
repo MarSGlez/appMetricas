@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject  } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PopoverController } from '@ionic/angular';
+import { ref, uploadBytesResumable, getDownloadURL  } from '@angular/fire/storage';
+import { Storage } from '@angular/fire/storage';
 import * as math from 'mathjs';
 //import * as fs from "fs";
+
+
+
 
 @Component({
   selector: 'app-documentos',
@@ -10,12 +15,12 @@ import * as math from 'mathjs';
   styleUrls: ['./documentos.component.scss'],
 })
 export class DocumentosComponent  implements OnInit {
-	
+	private storage: Storage = inject(Storage);
  
   delimiters: string[] = ['(', ')', '[', ']', '{', '}', ',', '.', ';', '@', "'", "'"];
   operators: Record<string, number> = {
     '=': 0,
-    '+': 0,
+    '+': 0,  
     '-': 0,
     '*': 0,
     '/': 0,
@@ -280,4 +285,47 @@ export class DocumentosComponent  implements OnInit {
   }*/
 
 
+  uploadFile(input: HTMLInputElement) {
+    if (!input.files) return
+
+    const files: FileList = input.files;
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files.item(i);
+        if (file) {
+          
+            const storageRef = ref(this.storage, file.name);
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on(
+              "state_changed",
+              (snapshot) => {
+                  const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                  console.log('Upload is ' + progress + '% done');
+                  //setPerc(progress);
+                  switch (snapshot.state) {
+                  case 'paused':
+                      console.log('Upload is paused');
+                      break;
+                  case 'running':
+                      console.log('Upload is running');
+                      break;
+                      default:
+                          break;
+                  }
+              },
+              (error) => {
+                  console.log(error);
+              },
+              () => {
+                  getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                      console.log(downloadURL)
+                  })
+              }
+            )
+
+            
+        }
+    }
+  }
 }
