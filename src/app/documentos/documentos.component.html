@@ -19,7 +19,7 @@
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Componentssss</a></p>
   </div>-->
 
-  <input type="file" (change)="onFileSelected($event)" accept=".py">
+  <input type="file" (change)="onFileSelected($event)" accept=".py"  #upload>
   <div *ngIf="fileContent">
     <h2>M e t r i c a s:</h2>
     <!--<pre>{{ fileContent }}</pre>-->
@@ -40,8 +40,5 @@
     </div>
   </div>
 
-  <h1>Storage</h1>
-  <label for="fileUpload">Choose a File</label>
-  <input id="fileUpload" type="file" #upload>
-  <button (click)="uploadFile(upload)">Upload</button>
+  <button (click)="uploadFile(upload)">Guardar</button>
 </ion-content>
