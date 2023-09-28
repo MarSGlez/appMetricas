@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { HttpClient } from '@angular/common/http';
+import { DatabaseService } from 'src/app/services/database.service';
+import { Metricas } from 'src/app/interface/metricas';
 import * as math from 'mathjs';
 
 @Component({
@@ -14,6 +16,7 @@ export class DetailComponent  implements OnInit {
   destinatario: string | null;
   ruta: string | null;
   programa: string | null;
+  metricasD: Metricas[] = [];
 
   delimiters: string[] = ['(', ')', '[', ']', '{', '}', ',', '.', ';', '@', "'", "'"];
   operators: Record<string, number> = {
@@ -108,8 +111,27 @@ export class DetailComponent  implements OnInit {
   E: number | null = null;
   T: number | null = null;
 
-  constructor(private route: ActivatedRoute,private file: File, private filePath: FilePath, private http: HttpClient) { 
+  constructor(private route: ActivatedRoute,private file: File, private filePath: FilePath, private http: HttpClient, private db: DatabaseService) { 
     this.destinatario = this.route.snapshot.paramMap.get('programaId');
+    if (this.destinatario  !== null) {
+      // El valor no es nulo, puedes usarlo como una cadena de texto
+      //this.db.getMetricasId(this.destinatario);
+      /*
+      this.db.getMetricasId(this.destinatario).subscribe(chatSnap => {
+        this.metricasD = [];
+      
+        chatSnap.forEach(chatData => {
+          const item = new Chat(chatData.payload.doc.data());
+          item.id = chatData.payload.doc.id;
+          this.metricasD.push(item);
+        });
+      
+        // Aquí puedes realizar cualquier otra operación que necesites con this.recentChats
+      });*/
+
+    }
+   
+
     this.ruta = '/assets/Prog'+this.destinatario+'.py';
   }
   

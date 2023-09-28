@@ -121,7 +121,7 @@ export class DocumentosComponent  implements OnInit {
    }
 
   ngOnInit() {
-    this.db.getTallerList().subscribe( talleres => {
+    this.db.getMetricasList().subscribe( talleres => {
       talleres.map( taller => {
        console.log(taller)
       })
@@ -211,7 +211,7 @@ export class DocumentosComponent  implements OnInit {
           
             const storageRef = ref(this.storage, file.name);
             const uploadTask = uploadBytesResumable(storageRef, file);
-
+  
             uploadTask.on(
               "state_changed",
               (snapshot) => {
@@ -235,6 +235,7 @@ export class DocumentosComponent  implements OnInit {
               () => {
                   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                       console.log(downloadURL)
+                      this.db.addMetricasListItem('2023-09-27', downloadURL, file.name);
                   })
               }
             )

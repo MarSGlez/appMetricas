@@ -14,9 +14,9 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card [routerLink]="['details/1']" routerDirection="forward">
+  <ion-card [routerLink]="['details/'+metrica.titulo]" routerDirection="forward" *ngFor="let metrica of metricasD ">
     <ion-card-header>
-      <ion-card-title>Programa 1</ion-card-title>
+      <ion-card-title>{{metrica.titulo}}</ion-card-title>
       <ion-card-subtitle>Programas Python</ion-card-subtitle>
     </ion-card-header>
   
@@ -26,35 +26,13 @@
   
   </ion-card>
 
-  <ion-card [routerLink]="['details/2']" routerDirection="forward">
-    <ion-card-header>
-      <ion-card-title>Programa 2</ion-card-title>
-      <ion-card-subtitle>Programas Python</ion-card-subtitle>
-    </ion-card-header>
   
-    <ion-card-content>
-      
-    </ion-card-content>
-  
-    
-
-  </ion-card>
-
-  <ion-card  [routerLink]="['details/3']" routerDirection="forward">
-    <ion-card-header>
-      <ion-card-title>Programa 3</ion-card-title>
-      <ion-card-subtitle>Programas Python</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      
-    </ion-card-content>
-  
-
-  </ion-card>
   <ion-content>
-  
+    
   </ion-content>
+
+  
+
   <ion-footer >
     <ion-toolbar >
       <div class="input-text">

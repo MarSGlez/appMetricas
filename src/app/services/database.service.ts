@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Component, inject } from '@angular/core';
 
-import { Firestore, collection, addDoc, collectionData} from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, getDoc } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
 
@@ -20,17 +20,28 @@ export class DatabaseService {
     private storageD: Storage
   ) { }
 
-  getTallerList(){
-    const tabla = collection(this.firestore, 'talleres');
+  getMetricasList(){
+    const tabla = collection(this.firestore, 'metricas');
     return collectionData(tabla);
   }
 
-  addMetricasListItem( origen : string, destinatario: string, chatItem: any){
-    const tabla = collection(this.firestore, 'metricas');
-    //return this.firestore.collection('chats').doc(origen).collection('chatlist').doc(destinatario).set( chatItem);  
-    
+  addMetricasListItem( fecha_creacion : string, ruta: string, titulo: string){
+    //const tabla = collection(this.firestore, 'metricas');
+    const docRef = addDoc(collection(this.firestore, "metricas"), {
+      fecha_creacion: fecha_creacion,
+      ruta: ruta,
+      titulo: titulo
+    });
+    return docRef;
+  }
 
- }
+  getMetricasId( titulo: string){
+    const docRef = doc(this.firestore, "metricas", titulo);
+    const documento = getDoc(docRef);
+    //return this.firestore.collection('metricas').doc(id).collection('chatlist').snapshotChanges();
+    return documento;
+    
+  }
 
   
 
