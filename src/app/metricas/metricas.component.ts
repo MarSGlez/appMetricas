@@ -22,6 +22,16 @@ export class MetricasComponent  implements OnInit {
           ruta: doc['ruta'],
           fecha_creacion: doc['fecha_creacion'],
           titulo: doc['titulo'],
+          H: doc['H'],
+          N: doc['N'],
+          n: doc[' n'],
+          V: doc['V'],
+          D: doc['D'],
+          L: doc['L'],
+          E: doc['E'],
+          T: doc['T'],
+          LoCL: doc['LoCL'],
+          CLoC: doc['CLoC'],
           // Agrega otras propiedades de Metricas si es necesario
         };
       });
@@ -29,10 +39,5 @@ export class MetricasComponent  implements OnInit {
     });
   }
  
-    
-
   
-
- 
-
 }

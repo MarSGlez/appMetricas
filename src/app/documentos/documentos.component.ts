@@ -103,14 +103,14 @@ export class DocumentosComponent  implements OnInit {
   selectedFile: File | null = null;
   fileContent: string | null = null;
 
-  H: number | null = null;
-  N: number | null = null;
-  n: number | null = null;
-  V: number | null = null;
-  D: number | null = null;
-  L: number | null = null;
-  E: number | null = null;
-  T: number | null = null;
+  H: number  = 0;
+  N: number  = 0;
+  n: number  = 0;
+  V: number  = 0;
+  D: number  = 0;
+  L: number  = 0;
+  E: number  = 0;
+  T: number  = 0;
 
  
   constructor(
@@ -234,8 +234,24 @@ export class DocumentosComponent  implements OnInit {
               },
               () => {
                   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                      console.log(downloadURL)
-                      this.db.addMetricasListItem('2023-09-27', downloadURL, file.name);
+                      console.log(downloadURL) 
+                      console.log(this.H)
+                     
+                      this.db.addMetricasListItem(
+                        '2023-09-27', 
+                        downloadURL, 
+                        file.name,  
+                        this.H,
+                        this.N,
+                        this.n,
+                        this.V,
+                        this.D,
+                        this.L,
+                        this.E,
+                        this.T,
+                        this.LoC,
+                        this.CLoC
+                      );
                   })
               }
             )

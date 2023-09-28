@@ -29,10 +29,10 @@
     <pre>10. Total Líneas de Codigo Comentadas: {{ CLoC }}</pre>
   </div>
 
-  <div >
+  <div *ngFor="let data of metricasD ">
     <h2>Contenido del programa:</h2>
     <!--<pre>{{ fileContent }}</pre>-->
-    <pre>{{programa}}</pre>
+    <pre>{{data.ruta}} </pre>
   </div>
 </ion-content>
 
