@@ -14,26 +14,26 @@
 </ion-header>
 
 <ion-content class="fond">
-  <div >
+  <div *ngFor="let data of metricasD ">
     <h2>M e t r i c a s:</h2>
     <!--<pre>{{ fileContent }}</pre>-->
-    <pre>1. H: {{ H }}</pre>
-    <pre>2. N: {{ N }}</pre>
-    <pre>3. n: {{ n }}</pre>
-    <pre>4. V: {{ V }}</pre>
-    <pre>5. D: {{ D }}</pre>
-    <pre>6. L: {{ L }}</pre>
-    <pre>7. E: {{ E }}</pre>
-    <pre>8. T: {{ T }}</pre>
-    <pre>9. Total Líneas de Codigo: {{ LoC }}</pre>
-    <pre>10. Total Líneas de Codigo Comentadas: {{ CLoC }}</pre>
+    <pre>1. H: {{ data.H }}</pre>
+    <pre>2. N: {{ data.N }}</pre>
+    <pre>3. n: {{ data.n }}</pre>
+    <pre>4. V: {{ data.V }}</pre>
+    <pre>5. D: {{ data.D }}</pre>
+    <pre>6. L: {{ data.L }}</pre>
+    <pre>7. E: {{ data.E }}</pre>
+    <pre>8. T: {{ data.T }}</pre>
+    <pre>9. Total Líneas de Codigo: {{ data.LoC }}</pre>
+    <pre>10. Total Líneas de Codigo Comentadas: {{ data.CLoC }}</pre>
   </div>
 
-  <div *ngFor="let data of metricasD ">
+  <!--<div >
     <h2>Contenido del programa:</h2>
-    <!--<pre>{{ fileContent }}</pre>-->
-    <pre>{{data.ruta}} </pre>
-  </div>
+    <pre>{{ fileContent }}</pre>
+    <pre> </pre>
+  </div>-->
 </ion-content>
 
 <ion-footer no-border>
